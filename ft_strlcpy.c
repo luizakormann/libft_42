@@ -6,31 +6,31 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:46:30 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/16 18:32:42 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/16 19:05:35 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "ft_libft.h"
-#include <bsd/string.h>
-#include <stdio.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	char	*s;
+	size_t	sizes;
 
 	i = 0;
 	s = (char *)src;
-	while (i < size && src[i] != '\0')
+	sizes = ft_strlen(s);
+	if (size == 0)
+		return (sizes);
+	while (i < size - 1 && src[i] != '\0')
 	{
-		*dst = *src;
-		src++;
-		dst++;
+		dst[i] = src[i];
 		i++;
 	}
-	*dst = '\0';
-	return (ft_strlen(s));
+	dst[i] = '\0';
+	return (sizes);
 }
 
 char	*ft_strcpy(char *dest, const char *src)
@@ -42,6 +42,7 @@ char	*ft_strcpy(char *dest, const char *src)
 		dest++;
 	}
 	*dest = '\0';
+	return (dest);
 }
 
 int	main(void)
@@ -51,7 +52,5 @@ int	main(void)
 
 	ft_strcpy(s, "Cp 15 positions not this part.");
 	ft_strlcpy(d, s, 15);
-	/* strlcpy(d, s, 15); */
-	printf("%s", d);
 	return (0);
 }
