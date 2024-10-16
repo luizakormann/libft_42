@@ -1,16 +1,53 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2024/10/16 17:11:20 by lukorman          #+#    #+#              #
+#    Updated: 2024/10/16 17:43:42 by lukorman         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
+# **************************************************************************** #
+#                               configuration                                  #
+# **************************************************************************** #
+
 CC	= cc
 CFLAGS	= -Wall -Wextra -Werror
 RM	= rm -rf
-NAME	= libft
-OBJS	= ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o
-	ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o
-	ft_strlcat.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o
-	ft_strncmp.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_atoi.o
+NAME	= libft.a
+
+# **************************************************************************** #
+#                                   files                                      #
+# **************************************************************************** #
+
+SRC_FILES	= ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
+ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c\
+ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c\
+ft_strncmp.c ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c
+OBJS	= $(SRC_FILES:.c=.o)
+
+# **************************************************************************** #
+#                              compile commands                                #
+# **************************************************************************** #
+
+AR	:= ar -rcs
+COMPILE_OBJS	= $(CC) $(CFLAGS) -c $< -o $@
+COMPILE_LIB	= $(AR) $(NAME) $(OBJS)
+
+# **************************************************************************** #
+#                                  targets                                     #
+# **************************************************************************** #
 
 all: $(NAME) clean
 
+%.o: %.c
+	$(COMPILE_OBJS)
+
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+	$(COMPILE_LIB)
 
 clean:
 	$(RM) $(OBJS)
