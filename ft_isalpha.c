@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 15:53:17 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/14 16:08:22 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:55:17 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,4 @@ int	ft_isalpha(int c)
 		return (1);
 	else
 		return (0);
-}
-
-int	main(void)
-{
-	ft_isalpha('.');
-	return (0);
 }

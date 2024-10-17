@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:35:17 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/16 23:17:44 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:03:48 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,9 +21,3 @@ size_t	ft_strlen(const char *s)
 		i++;
 	return (i);
 }
-
-/* int	main(void)
-{
-	ft_strlen("12345");
-	return (0);
-} */

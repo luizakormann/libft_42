@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 22:46:30 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/16 22:40:03 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:06:29 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,26 +31,4 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	}
 	dst[i] = '\0';
 	return (sizes);
-}
-
-char	*ft_strcpy(char *dest, const char *src)
-{
-	while (*src)
-	{
-		*dest = *src;
-		src++;
-		dest++;
-	}
-	*dest = '\0';
-	return (dest);
-}
-
-int	main(void)
-{
-	char	d[50];
-	char	s[70];
-
-	ft_strcpy(s, "Cp 15 positions not this part.");
-	ft_strlcpy(d, s, 15);
-	return (0);
 }

@@ -6,11 +6,9 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 23:39:37 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/16 23:47:07 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:04:28 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <stdio.h>
 
 int	ft_tolower(int c)
 {
@@ -18,10 +16,4 @@ int	ft_tolower(int c)
 		return (c += 32);
 	else
 		return (c);
-}
-
-int	main(void)
-{
-	printf("%c", ft_tolower('%'));
-	return (0);
 }

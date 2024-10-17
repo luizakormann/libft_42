@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 23:23:07 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/16 23:35:34 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:04:51 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,4 @@ int	ft_toupper(int c)
 		return (c -= 32);
 	else
 		return (c);
-}
-
-int	main(void)
-{
-	ft_toupper('%');
-	return (0);
 }

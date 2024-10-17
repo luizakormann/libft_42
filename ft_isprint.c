@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:28:23 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/14 19:34:02 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:56:19 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,4 @@ int	ft_isprint(int c)
 		return (1);
 	else
 		return (0);
-}
-
-int	main(void)
-{
-	ft_isprint('\0');
-	return (0);
 }

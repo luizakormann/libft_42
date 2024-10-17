@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 16:35:19 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/14 16:38:58 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/17 18:54:54 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,4 @@ int	ft_isalnum(int c)
 		return (1);
 	else
 		return (0);
-}
-
-int	main(void)
-{
-	ft_isalnum('.');
-	return (0);
 }

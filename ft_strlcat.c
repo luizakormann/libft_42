@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/16 21:22:30 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/16 23:13:27 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/17 19:06:21 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,27 +36,4 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	}
 	d[++i] = '\0';
 	return (i);
-}
-
-char	*ft_strcpy(char *dest, const char *src)
-{
-	while (*src)
-	{
-		*dest = *src;
-		src++;
-		dest++;
-	}
-	*dest = '\0';
-	return (dest);
-}
-
-int	main(void)
-{
-	char	d[30];
-	char	s[30];
-
-	ft_strcpy(d, "123456");
-	ft_strcpy(s, "7890");
-	ft_strlcat(d, s, 2);
-	return (0);
 }
