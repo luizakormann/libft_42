@@ -6,13 +6,15 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:35:17 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/16 19:23:27 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/16 23:17:44 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_strlen(char *s)
+#include <stddef.h>
+
+size_t	ft_strlen(const char *s)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
 	while (s[i] != '\0')
@@ -20,8 +22,8 @@ int	ft_strlen(char *s)
 	return (i);
 }
 
-int	main(void)
+/* int	main(void)
 {
 	ft_strlen("12345");
 	return (0);
-}
+} */

@@ -1,36 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/15 22:46:30 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/16 22:40:03 by lukorman         ###   ########.fr       */
+/*   Created: 2024/10/16 21:22:30 by lukorman          #+#    #+#             */
+/*   Updated: 2024/10/16 23:13:27 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
 #include "ft_libft.h"
 
-size_t	ft_strlcpy(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
+	char	*d;
+	size_t	dlen;
 	size_t	i;
-	char	*s;
-	size_t	sizes;
+	size_t	j;
 
+	dlen = (ft_strlen(dst) -1);
+	d = dst;
 	i = 0;
-	s = (char *)src;
-	sizes = ft_strlen(s);
-	if (size == 0)
-		return (sizes);
-	while (i < size - 1 && src[i] != '\0')
+	j = 0;
+	while (i < dlen)
 	{
-		dst[i] = src[i];
+		d[i] = dst[i];
 		i++;
 	}
-	dst[i] = '\0';
-	return (sizes);
+	while (j < size && src[j] != '\0')
+	{
+		d[++i] = src[j];
+		j++;
+	}
+	d[++i] = '\0';
+	return (i);
 }
 
 char	*ft_strcpy(char *dest, const char *src)
@@ -47,10 +52,11 @@ char	*ft_strcpy(char *dest, const char *src)
 
 int	main(void)
 {
-	char	d[50];
-	char	s[70];
+	char	d[30];
+	char	s[30];
 
-	ft_strcpy(s, "Cp 15 positions not this part.");
-	ft_strlcpy(d, s, 15);
+	ft_strcpy(d, "123456");
+	ft_strcpy(s, "7890");
+	ft_strlcat(d, s, 2);
 	return (0);
 }
