@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:23:30 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/17 19:00:33 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:43:35 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,9 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size);
 size_t	ft_strlcat(char *dst, const char *src, size_t size);
 int		ft_toupper(int c);
 int		ft_tolower(int c);
-
+char	*ft_strchr(const char *s, int c);
+char	*ft_strrchr(const char *s, int c);
 /*
-ft_strchr.o
-ft_strrchr.o
 ft_strncmp.o
 ft_memchr.o
 ft_memcmp.o
