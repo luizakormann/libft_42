@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:23:30 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/22 19:43:35 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/22 19:46:10 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,8 +30,8 @@ int		ft_toupper(int c);
 int		ft_tolower(int c);
 char	*ft_strchr(const char *s, int c);
 char	*ft_strrchr(const char *s, int c);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 /*
-ft_strncmp.o
 ft_memchr.o
 ft_memcmp.o
 ft_strnstr.o
