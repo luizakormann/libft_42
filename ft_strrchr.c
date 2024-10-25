@@ -6,11 +6,11 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 19:40:08 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/22 19:40:09 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:24:01 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_libft.h"
+#include "libft.h"
 
 char	*ft_strrchr(const char *s, int c)
 {

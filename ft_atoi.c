@@ -6,12 +6,11 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 23:14:39 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/23 21:22:41 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/25 20:49:02 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
-#include "ft_libft.h"
+#include "libft.h"
 
 int	spaces(const char *nptr)
 {

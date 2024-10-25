@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_libft.h                                         :+:      :+:    :+:   */
+/*   libft.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/14 19:23:30 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/23 22:30:59 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/23 22:38:42 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_LIBFT_H
-# define FT_LIBFT_H
+#ifndef LIBFT_H
+# define LIBFT_H
 # include <stddef.h>
 
 int		ft_isalpha(int c);
@@ -37,8 +37,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t len);
 int		ft_atoi(const char *nptr);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strdup(const char *s);
-
+char	*ft_substr(char const *s, unsigned int start,
+			size_t len);
 /*
-
+ft_strjoin.c
+ft_strtrim.c
+ft_split.c
+ft_itoa.c
+ft_strmapi.c\
+ft_striteri.c
+ft_putchar_fd.c
+ft_putstr_fd.c
+ft_putendl_fd.c
+ft_putnbr_fd.c
  */
 #endif
