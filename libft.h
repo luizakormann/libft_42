@@ -41,8 +41,8 @@ char	*ft_strdup(const char *s);
 char	*ft_substr(char const *s, unsigned int start,
 			size_t len);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strtrim(char const *s1, char const *set);
 /*
-ft_strtrim.c
 ft_split.c
 ft_itoa.c
 ft_strmapi.c\
