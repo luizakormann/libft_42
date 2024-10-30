@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/15 21:58:19 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/25 20:49:17 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/29 19:37:33 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,16 +24,4 @@ void	ft_bzero(void *s, size_t n)
 		str[i] = '\0';
 		i++;
 	}
-}
-
-char	*ft_strcpy(char *dest, const char *src)
-{
-	while (*src)
-	{
-		*dest = *src;
-		src++;
-		dest++;
-	}
-	*dest = '\0';
-	return (dest);
 }
