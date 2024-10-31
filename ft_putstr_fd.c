@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 00:02:56 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/31 00:14:32 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/10/31 00:24:11 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,5 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	write(fd, s, ft_strlen(s) + 1);
+	write(fd, s, ft_strlen(s));
 }
