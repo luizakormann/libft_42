@@ -6,7 +6,7 @@
 #    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 17:11:20 by lukorman          #+#    #+#              #
-#    Updated: 2024/11/04 21:49:49 by lukorman         ###   ########.fr        #
+#    Updated: 2024/11/05 00:13:17 by lukorman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,7 +43,7 @@ COMPILE_LIB	= $(AR) $(NAME) $(OBJS)
 #                                  targets                                     #
 # **************************************************************************** #
 
-all: $(NAME) clean
+all: $(NAME)
 
 %.o: %.c
 	$(COMPILE_OBJS)
@@ -59,3 +59,5 @@ fclean: clean
 
 re: fclean
 	$(MAKE) all
+
+.PHONY: all clean fclean re
