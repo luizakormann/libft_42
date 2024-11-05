@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/27 19:03:18 by lukorman          #+#    #+#             */
-/*   Updated: 2024/11/04 23:08:27 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/04 23:34:27 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ char	*ft_strtrim(char const *s1, char const *set)
 	start = 0;
 	end = ft_strlen(s1);
 	i = 0;
-	ptr = (char *)malloc(end + 1);
-	if (ptr == NULL)
+	if (!s1 || !set)
 		return (NULL);
 	while (s1[start] && ispresent(s1[start], set))
 		start++;
 	while (end > start && ispresent(s1[end - 1], set))
 		end--;
+	ptr = (char *)malloc(end - start + 1);
+	if (!ptr)
+		return (NULL);
 	while (start < end)
 		ptr[i++] = s1[start++];
 	ptr[i] = '\0';
