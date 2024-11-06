@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/23 21:26:35 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/27 17:58:54 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/05 21:53:38 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,16 @@
 void	*ft_calloc(size_t nmemb, size_t size)
 {
 	void	*ptr;
-	size_t	t_size;
 
-	t_size = nmemb * size;
-	ptr = malloc(t_size);
+	if (nmemb == 0 || size == 0)
+		return (malloc(0));
+	if (nmemb > (size_t)-1 / size)
+		return (NULL);
+	ptr = malloc(nmemb * size);
 	if (nmemb > __SIZE_MAX__ / size)
 		return (NULL);
 	if (ptr == NULL)
 		return (NULL);
-	ft_bzero(ptr, t_size);
+	ft_bzero(ptr, nmemb * size);
 	return (ptr);
 }

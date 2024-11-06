@@ -6,48 +6,33 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 23:14:39 by lukorman          #+#    #+#             */
-/*   Updated: 2024/11/04 21:29:15 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/05 21:35:23 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	spaces(const char *nptr);
-
 int	ft_atoi(const char *nptr)
 {
 	size_t	i;
 	int		res;
-	int		num;
 	int		sig;
 
-	i = spaces(nptr);
+	i = 0;
 	res = 0;
-	num = 0;
 	sig = 1;
+	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
+		i++;
 	if (nptr[i] == '-' || nptr[i] == '+')
 	{
 		if (nptr[i] == '-')
-			sig *= -1;
+			sig = -1;
 		i++;
-		if (nptr[i] == '-' || nptr[i] == '+')
-			return (0);
 	}
-	while (ft_isdigit(nptr[i]) != 0 && nptr[i])
+	while (ft_isdigit(nptr[i]))
 	{
-		num = nptr[i] - 48;
-		res = res * 10 + num;
+		res = res * 10 + (nptr[i] - '0');
 		i++;
 	}
 	return (res * sig);
-}
-
-int	spaces(const char *nptr)
-{
-	size_t	i;
-
-	i = 0;
-	while (nptr[i] == ' ' || (nptr[i] >= 9 && nptr[i] <= 13))
-		i++;
-	return (i);
 }
