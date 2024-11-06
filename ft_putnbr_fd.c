@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 00:27:28 by lukorman          #+#    #+#             */
-/*   Updated: 2024/11/05 19:10:13 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/05 23:15:56 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_putnbr_fd(int n, int fd)
 		}
 		else
 		{
-			n = n + 48;
+			n += 48;
 			write(fd, &n, 1);
 		}
 	}

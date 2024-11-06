@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/21 15:04:31 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/27 17:59:48 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/05 23:28:55 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ char	*ft_strchr(const char *s, int c)
 	char	*str;
 
 	str = (char *)s;
-	while (*str != '\0')
+	while (*str)
 	{
 		if (*str == (unsigned char)c)
 			return (str);

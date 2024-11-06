@@ -6,14 +6,14 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 21:02:23 by lukorman          #+#    #+#             */
-/*   Updated: 2024/10/29 20:59:21 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/05 23:30:17 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static int	nwords(const char *str, char delim);
-static char	*writewords(char *word, char *end);
+static char	*writewords(char *start, char *end);
 
 char	**ft_split(char const *s, char c)
 {
@@ -65,11 +65,11 @@ static int	nwords(const char *str, char delim)
 	return (count);
 }
 
-static char	*writewords(char *word, char *end)
+static char	*writewords(char *start, char *end)
 {
 	char	*wword;
 
-	wword = ft_substr((char const *)word, 0, (end - word));
+	wword = ft_substr((char const *)start, 0, (end - start));
 	if (!wword)
 		return (NULL);
 	return (wword);
