@@ -6,7 +6,7 @@
 #    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 17:11:20 by lukorman          #+#    #+#              #
-#    Updated: 2024/11/05 00:13:17 by lukorman         ###   ########.fr        #
+#    Updated: 2024/11/05 23:57:31 by lukorman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,11 @@ ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c\
 ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c\
 ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c\
 ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
-OBJS	= $(SRC_FILES:.c=.o)
+SRC_BONUS	= ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+	ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
+OBJS_FILES	= $(SRC_FILES:.c=.o)
+OBJS_BONUS	= $(SRC_BONUS:.c=.o)
+ALL_OBJS	= $(OBJS_FILES) $(OBJS_BONUS)
 
 # **************************************************************************** #
 #                              compile commands                                #
@@ -37,7 +41,8 @@ OBJS	= $(SRC_FILES:.c=.o)
 
 AR	:= ar -rcs
 COMPILE_OBJS	= $(CC) $(CFLAGS) -c $< -o $@
-COMPILE_LIB	= $(AR) $(NAME) $(OBJS)
+COMPILE_LIB_FILES	= $(AR) $(NAME) $(OBJS_FILES)
+COMPILE_LIB_BONUS	= $(AR) $(NAME) $(ALL_OBJS)
 
 # **************************************************************************** #
 #                                  targets                                     #
@@ -48,16 +53,18 @@ all: $(NAME)
 %.o: %.c
 	$(COMPILE_OBJS)
 
-$(NAME): $(OBJS)
-	$(COMPILE_LIB)
+$(NAME): $(OBJS_FILES)
+	$(COMPILE_LIB_FILES)
+
+bonus: $(ALL_OBJS)
+	$(COMPILE_LIB_BONUS)
 
 clean:
-	$(RM) $(OBJS)
+	$(RM) $(ALL_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean
-	$(MAKE) all
+re: fclean all
 
 .PHONY: all clean fclean re
