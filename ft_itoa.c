@@ -6,14 +6,14 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 21:07:44 by lukorman          #+#    #+#             */
-/*   Updated: 2024/11/05 22:15:50 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/05 23:09:55 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
 static size_t	numlen(long num);
-static char	*writenums(long num, char *res, size_t i);
+static char		*writenums(long num, char *res, size_t i);
 
 char	*ft_itoa(int n)
 {
