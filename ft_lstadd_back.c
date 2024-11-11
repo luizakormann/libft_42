@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:04:35 by lukorman          #+#    #+#             */
-/*   Updated: 2024/11/11 17:56:47 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/11 18:34:36 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,13 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*tmp;
 
-	tmp = *lst;
-	while (!tmp)
+	if (!lst || !new)
+		return ;
+	if (!*lst)
 	{
-		tmp = tmp->next;
+		*lst = new;
+		return ;
 	}
+	tmp = ft_lstlast(*lst);
 	tmp->next = new;
 }
