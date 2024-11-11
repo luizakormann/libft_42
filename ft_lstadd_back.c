@@ -6,7 +6,7 @@
 /*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/11 17:04:35 by lukorman          #+#    #+#             */
-/*   Updated: 2024/11/11 17:11:18 by lukorman         ###   ########.fr       */
+/*   Updated: 2024/11/11 17:56:47 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 		tmp = tmp->next;
 	}
 	tmp->next = new;
-
 }
