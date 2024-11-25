@@ -6,7 +6,7 @@
 #    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 17:11:20 by lukorman          #+#    #+#              #
-#    Updated: 2024/11/11 21:32:12 by lukorman         ###   ########.fr        #
+#    Updated: 2024/11/25 17:06:45 by lukorman         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -44,6 +44,14 @@ AR	:= ar -rcs
 COMPILE_OBJS	= $(CC) $(CFLAGS) -c $< -o $@
 COMPILE_LIB_FILES	= $(AR) $(NAME) $(OBJS_FILES)
 COMPILE_LIB_BONUS	= $(AR) $(NAME) $(ALL_OBJS)
+
+# **************************************************************************** #
+#                                 check relink                                 #
+# **************************************************************************** #
+
+ifeq ($(findstring bonus,$(MAKECMDGOALS)),bonus)
+	OBJS += $(OBJS_BONUS)
+endif
 
 # **************************************************************************** #
 #                                  targets                                     #
