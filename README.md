@@ -47,9 +47,3 @@ Use the `Makefile` to compile and manage the project:
 ``` bash
 gcc -Wall -Wextra -Werror -I include/ -L bin/ -lft main.c
 ```
-
-## Contribution
-This project was entirely developed by Luiza Korman (lukorman@student.42.fr) as part of the 42 São Paulo curriculum. External modifications or contributions are not allowed.
-
-## License
-This project is intended exclusively for educational use within the scope of 42 São Paulo. Usage outside this context must comply with the institution’s guidelines.
