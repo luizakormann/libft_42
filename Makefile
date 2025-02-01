@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+         #
+#    By: luiza <luiza@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 17:11:20 by lukorman          #+#    #+#              #
-#    Updated: 2025/01/16 16:58:26 by lukorman         ###   ########.fr        #
+#    Updated: 2025/02/01 01:31:03 by luiza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ ALL_OBJS	= $(OBJS_FILES) $(OBJS_BONUS)
 AR	:= ar -rcs
 COMPILE_LIB_FILES	= $(AR) $(NAME) $(addprefix $(OBJ_DIR), $(OBJS_FILES))
 COMPILE_LIB_BONUS	= $(AR) $(NAME) $(addprefix $(OBJ_DIR), $(ALL_OBJS))
+CREATE_LIB	= $(AR) $(NAME) $(addprefix $(OBJ_DIR), $(OBJS_FILES))
 
 # **************************************************************************** #
 #                                 check relink                                 #
@@ -69,7 +70,7 @@ all: $(NAME)
 
 %.o: $(SRC_DIR)%.c
 	mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -I$(INC_DIR) -c $< -o $(OBJ_DIR)$@
+	$(CREATE_LIB)
 
 $(NAME): $(OBJS_FILES)
 	mkdir -p $(BIN_DIR)
