@@ -1,8 +1,8 @@
-# Libft
+# libft
 
 Libft is a project from **42 São Paulo** that consists of recreating a standard C library, containing various useful functions for handling strings, memory, linked lists, and other basic operations. This project is one of the pillars of the 42 curriculum, helping to solidify fundamental concepts and best practices.
 
-## Project Structure
+## 📁 Project Structure
 The project is organized as follows:
 
  - **bin/:** Directory where the `libft.a` (compiled library) file will be generated.
@@ -10,7 +10,7 @@ The project is organized as follows:
  - **obj/:** Directory where object files (`.o`) are stored during compilation.
  - **src/:** Directory containing the source files (`.c`) with the function implementations.
 
-## Implemented Functions
+## 📌 Implemented Functions
 The library includes functions divided into the following main categories:
 
 | Library | Functions |
@@ -25,7 +25,7 @@ The library includes functions divided into the following main categories:
 ||- Creation and manipulation: `ft_lstnew`, `ft_lstadd_front`, `ft_lstadd_back`, `ft_lstsize`, `ft_lstlast`.|
 ||- Advanced operations: `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`.|
 
-## Compilation and Usage
+## ⚙️ Compilation and Usage
 ### Requirements
  - GCC or another compatible C compiler.
  - UNIX/Linux system recommended (tested in the 42 São Paulo environment).
@@ -47,3 +47,15 @@ Use the `Makefile` to compile and manage the project:
 ``` bash
 gcc -Wall -Wextra -Werror -I include/ -L bin/ -lft main.c
 ```
+
+## 🎓 Key Learnings (author's notes)
+This project provided valuable insights into:
+
+ - **Fundamentals of C Standard Library Functions**: Implementing core functions like `strlen`, `strnstr`, and `itoa` deepened my understanding of string manipulation, memory management, and numerical conversions.
+ - **Segfault Handling & Defensive Programming**: Adapting `strnstr` to align with Francinette's expected behavior taught me how to anticipate segmentation faults and handle `NULL` pointers properly.
+ - **Makefile & Compilation Process**: Creating and refining my `Makefile` to compile `libft.a` helped me gain fluency in automating builds, managing dependencies, and understanding static libraries.
+ - **Criterion for Unit Testing**: Integrating the Criterion testing framework allowed me to validate my functions rigorously and reinforced the importance of writing modular and testable code.
+ - **Project Structure & Code Organization**: This was my first project where I structured files into `include/`, `bin/`, and other standard directories, improving maintainability and scalability in a real-world development workflow.
+
+## 👩‍💻 Author
+This project was developed by Luiza Kormann (lukorman@student.42.fr) as part of the 42 São Paulo curriculum.
