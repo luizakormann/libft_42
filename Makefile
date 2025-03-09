@@ -6,78 +6,102 @@
 #    By: luiza <luiza@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 17:11:20 by lukorman          #+#    #+#              #
-#    Updated: 2025/02/01 01:31:03 by luiza            ###   ########.fr        #
+#    Updated: 2025/03/09 20:23:43 by luiza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 # **************************************************************************** #
-#                               configuration                                  #
+#                                    config                                    #
 # **************************************************************************** #
 
 CC	= cc
-CFLAGS	= -Wall -Wextra -Werror
+CFLAGS	= -Wall -Wextra -Werror -I$(INC_DIR)
+AR	= ar -rcs
 RM	= rm -rf
-NAME	= $(BIN_DIR)libft.a
 
 # **************************************************************************** #
 #                                    paths                                     #
 # **************************************************************************** #
 
 OBJ_DIR	= obj/
-SRC_DIR = src/
-BIN_DIR = bin/
-INC_DIR = include/
+SRC_DIR	= src/
+BIN_DIR	= bin/
+INC_DIR	= include/
+
+LIB_DIR	= $(SRC_DIR)libft/
+GNL_DIR	= $(SRC_DIR)gnl/
+PRINTF_DIR	= $(SRC_DIR)printf/
+
+LIBFT_NAME	= $(BIN_DIR)libft.a
+GNL_NAME	= $(BIN_DIR)gnl.a
+PRINTF_NAME	= $(BIN_DIR)printf.a
+ALL_NAME	= $(BIN_DIR)libft.a
 
 # **************************************************************************** #
 #                                   files                                      #
 # **************************************************************************** #
 
-SRC_FILES	= $(addprefix $(SRC_DIR), ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c\
-ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c ft_strlcpy.c\
-ft_strlcat.c ft_toupper.c ft_tolower.c ft_strchr.c ft_strrchr.c ft_strncmp.c\
-ft_memchr.c ft_memcmp.c ft_strnstr.c ft_atoi.c ft_calloc.c ft_strdup.c\
-ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c\
-ft_striteri.c ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c)
-SRC_BONUS	= $(addprefix $(SRC_DIR), ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c\
-ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c\
-ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c)
-OBJS_FILES	= $(notdir $(SRC_FILES:.c=.o))
-OBJS_BONUS	= $(notdir $(SRC_BONUS:.c=.o))
-ALL_OBJS	= $(OBJS_FILES) $(OBJS_BONUS)
+LIBFT_FILES	= $(wildcard $(LIB_DIR)ctype/*.c) \
+			$(wildcard $(LIB_DIR)stdlib/*.c) \
+			$(wildcard $(LIB_DIR)string/*.c) \
+			$(wildcard $(LIB_DIR)unistd/*.c) \
+			$(wildcard $(LIB_DIR)memory/*.c) \
+			$(wildcard $(LIB_DIR)lists/*.c)
+GNL_FILES	= $(wildcard $(GNL_DIR)/*.c)
+PRINTF_FILES	= $(wildcard $(PRINTF_DIR)/*.c)
+
+LIBFT_OBJS = $(patsubst $(LIB_DIR)%.c, $(OBJ_DIR)libft/%.o, $(LIBFT_FILES))
+GNL_OBJS	= $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(GNL_FILES))
+PRINTF_OBJS	= $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(PRINTF_FILES))
+
+ALL_OBJS = $(LIBFT_OBJS) $(GNL_OBJS) $(PRINTF_OBJS)
 
 # **************************************************************************** #
 #                              compile commands                                #
 # **************************************************************************** #
 
-AR	:= ar -rcs
-COMPILE_LIB_FILES	= $(AR) $(NAME) $(addprefix $(OBJ_DIR), $(OBJS_FILES))
-COMPILE_LIB_BONUS	= $(AR) $(NAME) $(addprefix $(OBJ_DIR), $(ALL_OBJS))
-CREATE_LIB	= $(AR) $(NAME) $(addprefix $(OBJ_DIR), $(OBJS_FILES))
+
+COMPILE_LIBFT = $(AR) $(LIBFT_NAME) $(LIBFT_OBJS)
+COMPILE_GNL = $(AR) $(GNL_NAME) $(GNL_OBJS)
+COMPILE_PRINTF = $(AR) $(PRINTF_NAME) $(PRINTF_OBJS)
 
 # **************************************************************************** #
 #                                 check relink                                 #
 # **************************************************************************** #
 
-ifeq ($(findstring bonus,$(MAKECMDGOALS)),bonus)
-	OBJS += $(OBJS_BONUS)
+ifeq ($(findstring libft,$(MAKECMDGOALS)),libft)
+	OBJS += $(LIBFT_OBJS)
+endif
+
+ifeq ($(findstring gnl,$(MAKECMDGOALS)),gnl)
+	OBJS += $(GNL_OBJS)
+
+endif
+ifeq ($(findstring printf,$(MAKECMDGOALS)),printf)
+	OBJS += $(PRINTF_OBJS)
 endif
 
 # **************************************************************************** #
 #                                  targets                                     #
 # **************************************************************************** #
 
-all: $(NAME)
+all: libft gnl printf
 
-%.o: $(SRC_DIR)%.c
-	mkdir -p $(OBJ_DIR)
-	$(CREATE_LIB)
-
-$(NAME): $(OBJS_FILES)
+libft: $(LIBFT_OBJS)
 	mkdir -p $(BIN_DIR)
-	$(COMPILE_LIB_FILES)
+	$(COMPILE_LIBFT)
 
-bonus: $(ALL_OBJS)
-	$(COMPILE_LIB_BONUS)
+gnl: $(GNL_OBJS)
+	mkdir -p $(BIN_DIR)
+	$(COMPILE_GNL)
+
+printf: $(PRINTF_OBJS)
+	mkdir -p $(BIN_DIR)
+	$(COMPILE_PRINTF)
+
+$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ_DIR)
@@ -87,4 +111,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all libft gnl printf clean fclean re
