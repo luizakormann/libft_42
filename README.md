@@ -42,7 +42,7 @@ The library includes functions divided into the following main categories:
 |Bonus functions|Linked list operations (`t_list`):|
 ||- Creation and manipulation: `ft_lstnew`, `ft_lstadd_front`, `ft_lstadd_back`, `ft_lstsize`, `ft_lstlast`.|
 ||- Advanced operations: `ft_lstdelone`, `ft_lstclear`, `ft_lstiter`, `ft_lstmap`.|
-||Additionally, this project integrates the following projects:|
+|**V2**|Additionally, this project integrates the following projects:|
 |**Get Next Line (`gnl.a`)**|Reads a line from a file descriptor. <br> To learn more about this project check out my full project [here](https://github.com/luizakormann/getnextline_42) |
 |**Ft_printf (`printf.a`)**|My version of the `printf` output function. <br> To learn more about this project check out its page [here](https://github.com/luizakormann/printf_42) |
 
