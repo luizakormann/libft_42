@@ -6,7 +6,7 @@
 /*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 20:47:52 by lukorman          #+#    #+#             */
-/*   Updated: 2025/03/09 20:13:16 by luiza            ###   ########.fr       */
+/*   Updated: 2025/03/12 20:10:01 by luiza            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static int	handle_case(va_list *args, char specifier);
 static void	init_cases(t_cases *cases);
+int			ft_puthexa(unsigned long n, int is_upper);
 
 int	ft_printf(const char *str, ...)
 {
@@ -83,4 +84,20 @@ static void	init_cases(t_cases *cases)
 	cases[6].func = wrap_hex_low;
 	cases[7].specifier = 'X';
 	cases[7].func = wrap_hex_up;
+}
+
+int	ft_puthexa(unsigned long n, int is_upper)
+{
+	int			count;
+	const char	*hex_chars;
+
+	count = 0;
+	if (is_upper == 1)
+		hex_chars = "0123456789ABCDEF";
+	else
+		hex_chars = "0123456789abcdef";
+	if (n >= 16)
+		count += ft_puthexa(n / 16, is_upper);
+	count += ft_putchar(hex_chars[n % 16]);
+	return (count);
 }

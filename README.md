@@ -26,7 +26,7 @@ Libft is a project from **42 São Paulo** that consists of recreating a standard
 │   │   ├── lists/
 │   ├── gnl/
 │   ├── printf/
-└── Makefile  
+└── Makefile
 ```
 
 ## 📌 Implemented Functions
@@ -37,7 +37,7 @@ The library includes functions divided into the following main categories:
 |<ctype.h>|`ft_isalpha`, `ft_isdigit`, `ft_isalnum`, `ft_isascii`, `ft_isprint`, `ft_toupper`, `ft_tolower`.|
 |<string.h>|`ft_strlen`, `ft_strchr`, `ft_strrchr`, `ft_strncmp`, `ft_strnstr`, `ft_strdup`, `ft_strlcpy`, `ft_strlcat`.|
 |<stdlib.h>|`ft_atoi`, `ft_calloc`, `ft_itoa`.|
-|unistd.h>|`ft_putchar_fd`, `ft_putstr_fd`, `ft_putendl_fd`, `ft_putnbr_fd`.|
+|unistd.h>|`ft_putchar_fd`, `ft_printf`, `ft_putendl_fd`, `ft_putnbr_fd`.|
 |Memory management|`ft_memset`, `ft_memcpy`, `ft_memmove`, `ft_memchr`, `ft_memcmp`.|
 |Bonus functions|Linked list operations (`t_list`):|
 ||- Creation and manipulation: `ft_lstnew`, `ft_lstadd_front`, `ft_lstadd_back`, `ft_lstsize`, `ft_lstlast`.|

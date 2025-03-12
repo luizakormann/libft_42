@@ -6,7 +6,7 @@
 #    By: luiza <luiza@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/16 17:11:20 by lukorman          #+#    #+#              #
-#    Updated: 2025/03/09 20:23:43 by luiza            ###   ########.fr        #
+#    Updated: 2025/03/11 19:42:57 by luiza            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,6 @@ GNL_DIR	= $(SRC_DIR)gnl/
 PRINTF_DIR	= $(SRC_DIR)printf/
 
 LIBFT_NAME	= $(BIN_DIR)libft.a
-GNL_NAME	= $(BIN_DIR)gnl.a
-PRINTF_NAME	= $(BIN_DIR)printf.a
-ALL_NAME	= $(BIN_DIR)libft.a
 
 # **************************************************************************** #
 #                                   files                                      #
@@ -51,8 +48,8 @@ GNL_FILES	= $(wildcard $(GNL_DIR)/*.c)
 PRINTF_FILES	= $(wildcard $(PRINTF_DIR)/*.c)
 
 LIBFT_OBJS = $(patsubst $(LIB_DIR)%.c, $(OBJ_DIR)libft/%.o, $(LIBFT_FILES))
-GNL_OBJS	= $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(GNL_FILES))
-PRINTF_OBJS	= $(patsubst $(SRC_DIR)%.c, $(OBJ_DIR)%.o, $(PRINTF_FILES))
+GNL_OBJS	= $(patsubst $(GNL_DIR)%.c, $(OBJ_DIR)gnl/%.o, $(GNL_FILES))
+PRINTF_OBJS	= $(patsubst $(PRINTF_DIR)%.c, $(OBJ_DIR)printf/%.o, $(PRINTF_FILES))
 
 ALL_OBJS = $(LIBFT_OBJS) $(GNL_OBJS) $(PRINTF_OBJS)
 
@@ -61,45 +58,27 @@ ALL_OBJS = $(LIBFT_OBJS) $(GNL_OBJS) $(PRINTF_OBJS)
 # **************************************************************************** #
 
 
-COMPILE_LIBFT = $(AR) $(LIBFT_NAME) $(LIBFT_OBJS)
-COMPILE_GNL = $(AR) $(GNL_NAME) $(GNL_OBJS)
-COMPILE_PRINTF = $(AR) $(PRINTF_NAME) $(PRINTF_OBJS)
-
-# **************************************************************************** #
-#                                 check relink                                 #
-# **************************************************************************** #
-
-ifeq ($(findstring libft,$(MAKECMDGOALS)),libft)
-	OBJS += $(LIBFT_OBJS)
-endif
-
-ifeq ($(findstring gnl,$(MAKECMDGOALS)),gnl)
-	OBJS += $(GNL_OBJS)
-
-endif
-ifeq ($(findstring printf,$(MAKECMDGOALS)),printf)
-	OBJS += $(PRINTF_OBJS)
-endif
+COMPILE_LIBFT = $(AR) $(LIBFT_NAME) $(ALL_OBJS)
 
 # **************************************************************************** #
 #                                  targets                                     #
 # **************************************************************************** #
 
-all: libft gnl printf
+all:$(LIBFT_NAME)
 
-libft: $(LIBFT_OBJS)
+$(LIBFT_NAME): $(ALL_OBJS)
 	mkdir -p $(BIN_DIR)
 	$(COMPILE_LIBFT)
 
-gnl: $(GNL_OBJS)
-	mkdir -p $(BIN_DIR)
-	$(COMPILE_GNL)
+$(OBJ_DIR)libft/%.o: $(LIB_DIR)%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-printf: $(PRINTF_OBJS)
-	mkdir -p $(BIN_DIR)
-	$(COMPILE_PRINTF)
+$(OBJ_DIR)gnl/%.o: $(GNL_DIR)%.c
+	mkdir -p $(dir $@)
+	$(CC) $(CFLAGS) -c $< -o $@
 
-$(OBJ_DIR)%.o: $(SRC_DIR)%.c
+$(OBJ_DIR)printf/%.o: $(PRINTF_DIR)%.c
 	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -c $< -o $@
 
@@ -111,4 +90,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all libft gnl printf clean fclean re
+.PHONY: all clean fclean re
