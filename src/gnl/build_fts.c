@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   build_fts.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: luiza <luiza@student.42.fr>                +#+  +:+       +#+        */
+/*   By: lukorman <lukorman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/16 21:48:43 by luiza             #+#    #+#             */
-/*   Updated: 2025/03/09 20:07:05 by luiza            ###   ########.fr       */
+/*   Updated: 2025/04/18 22:00:00 by lukorman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,28 +53,4 @@ char	*extract_line(char **content)
 	free(*content);
 	*content = temp;
 	return (line);
-}
-
-void	free_node(t_buf_mngr **list, int fd)
-{
-	t_buf_mngr	*current;
-	t_buf_mngr	*prev;
-
-	current = *list;
-	prev = NULL;
-	while (current)
-	{
-		if (current->fd == fd)
-		{
-			if (prev)
-				prev->next = current->next;
-			else
-				*list = current->next;
-			free(current->content);
-			free(current);
-			return ;
-		}
-		prev = current;
-		current = current->next;
-	}
 }
